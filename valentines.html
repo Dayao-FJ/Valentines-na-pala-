@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Valentine Proposal</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 35px 25px 50px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      max-width: 420px;
+      width: 90%;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.05em;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .buttons {
+      margin-top: 25px;
+      position: relative;
+      height: 80px;
+    }
+
+    button {
+      font-size: 1em;
+      padding: 12px 26px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    #yesBtn {
+      background: #ff4d6d;
+      color: white;
+      margin-left: -10rem;
+    }
+
+    #noBtn {
+      background: white;
+      color: #ff4d6d;
+      position: absolute;
+      margin-left: 5rem;
+      transform: translateX(-50%);
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Hey, My One and Only Darling Asha Baby ❤️</h1>
+
+  <p id="message">
+    <img src="https://tse1.mm.bing.net/th/id/OIP.vtCeMUl0MEkj_Dp-9F38qQHaEU?pid=Api&P=0&h=180" alt="meme"> <br>
+    From random laughs to matinding topakan,  
+    every day with you always feels special.  
+    <br><br>
+    Alam kong matagal mo na tong iniintay…
+  </p>
+
+  <h2 id="question">Will you be my Valentine? 💌</h2>
+
+  <div class="buttons">
+    <button id="yesBtn" onclick="sayYes()">Yes💖</button>
+    <button id="noBtn">No🙃</button>
+  </div>
+
+  <h2 id="response" class="hidden"></h2>
+</div>
+
+<script>
+  const noBtn = document.getElementById("noBtn");
+  const buttons = document.querySelector(".buttons");
+
+  function moveButton() {
+    const maxX = buttons.clientWidth - noBtn.offsetWidth;
+    const maxY = buttons.clientHeight - noBtn.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+    noBtn.style.transform = "none";
+  }
+
+  // Desktop
+  noBtn.addEventListener("mouseover", moveButton);
+
+  // Mobile
+  noBtn.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    moveButton();
+  });
+
+  function sayYes() {
+    document.getElementById("message").innerHTML =
+      "Napagod ka sigurong habulin yung No HAHAHAHAHA 😂<br><br>" +
+      "Sorry if hindi kita madadala sa engrandeng Valentine’s date ngayon.<br>" +
+      "Wala talagang pera si ako 🥲<br><br>" +
+      "Pero sana alam mo na ikaw pa rin ang pipiliin ko, palagi.";
+
+    document.getElementById("question").classList.add("hidden");
+    buttons.classList.add("hidden");
+
+    const response = document.getElementById("response");
+    response.innerHTML = "Happy Valentine’s Day, my Valentine 💘";
+    response.classList.remove("hidden");
+  }
+</script>
+
+</body>
+</html>
